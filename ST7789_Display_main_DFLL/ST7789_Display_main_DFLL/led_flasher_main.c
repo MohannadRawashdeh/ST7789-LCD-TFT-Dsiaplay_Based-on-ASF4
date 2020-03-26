@@ -125,15 +125,15 @@ void Port_test()
 	}
 	void Test_draw_bitmap()
 	{
-		ST7789_drawBitmap(&ST7789_t,0,0,MR_Logo_240x135,240,240,ST7789_BLACK);
+		ST7789_drawBitmap(&ST7789_t,0,0,USB_ICON,240,240,ST7789_BLACK);
 		delay_ms(50);
 		 for (int16_t c=255;c>0;c-=25)
 		 {
-			 ST7789_drawBitmap(&ST7789_t,0,0,MR_Logo_240x135,240,240,ST7789_color565(&ST7789_t,c,255-c,8));		 			 
+			 ST7789_drawBitmap(&ST7789_t,0,0,USB_ICON,240,240,ST7789_color565(&ST7789_t,c,255-c,8));		 			 
 		 }
 		 delay_ms(50);
 		ST7789_fillScreen(&ST7789_t,ST7789_BLACK);
-		ST7789_drawBitmap(&ST7789_t,0,0,MR_Logo_240x135,240,240,ST7789_WHITE);
+		ST7789_drawBitmap(&ST7789_t,0,0,USB_ICON,240,240,ST7789_WHITE);
 		delay_ms(50);
 		for (int16_t c=255;c>0;c-=25)
 		{
@@ -184,11 +184,7 @@ int main(void)
 		Test_Graphic_Cir();
 		delay_ms(time_delay);
 		ST7789_fillScreen(&ST7789_t,ST7789_WHITE);
-		while (1)
-		{
-			Test_draw_bitmap();
-		}
-		
+		Test_draw_bitmap();
 		delay_ms(time_delay);
 		ST7789_fillScreen(&ST7789_t,ST7789_WHITE);
 	}
